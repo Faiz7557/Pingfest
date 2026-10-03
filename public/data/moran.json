@@ -1,0 +1,38 @@
+[
+  {
+    "variabel": "Kepemilikan Ponsel (%)",
+    "Moran's I": 0.406,
+    "p": 0.001,
+    "pola": "mengelompok"
+  },
+  {
+    "variabel": "Rata-rata Lama Sekolah (thn)",
+    "Moran's I": 0.122,
+    "p": 0.09,
+    "pola": "acak"
+  },
+  {
+    "variabel": "IPM",
+    "Moran's I": 0.388,
+    "p": 0.002,
+    "pola": "mengelompok"
+  },
+  {
+    "variabel": "PDRB per Kapita (ribu Rp)",
+    "Moran's I": -0.001,
+    "p": 0.365,
+    "pola": "acak"
+  },
+  {
+    "variabel": "TPT (%)",
+    "Moran's I": 0.223,
+    "p": 0.039,
+    "pola": "mengelompok"
+  },
+  {
+    "variabel": "Indeks Kerentanan",
+    "Moran's I": 0.241,
+    "p": 0.01,
+    "pola": "mengelompok"
+  }
+]

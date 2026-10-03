@@ -1,0 +1,680 @@
+{
+  "historical": [
+    {
+      "tanggal": "2020-01-01",
+      "nilai_transaksi_triliun": 2.21,
+      "pengguna_qris_juta": 8.06,
+      "merchant_qris_juta": 4.77,
+      "volume_transaksi_juta": 28
+    },
+    {
+      "tanggal": "2020-02-01",
+      "nilai_transaksi_triliun": 2.29,
+      "pengguna_qris_juta": 8.19,
+      "merchant_qris_juta": 5.11,
+      "volume_transaksi_juta": 28.3
+    },
+    {
+      "tanggal": "2020-03-01",
+      "nilai_transaksi_triliun": 2.6,
+      "pengguna_qris_juta": 8.63,
+      "merchant_qris_juta": 5.29,
+      "volume_transaksi_juta": 31.5
+    },
+    {
+      "tanggal": "2020-04-01",
+      "nilai_transaksi_triliun": 2.93,
+      "pengguna_qris_juta": 9.2,
+      "merchant_qris_juta": 5.92,
+      "volume_transaksi_juta": 35.8
+    },
+    {
+      "tanggal": "2020-05-01",
+      "nilai_transaksi_triliun": 2.84,
+      "pengguna_qris_juta": 9.59,
+      "merchant_qris_juta": 6.3,
+      "volume_transaksi_juta": 36.4
+    },
+    {
+      "tanggal": "2020-06-01",
+      "nilai_transaksi_triliun": 2.98,
+      "pengguna_qris_juta": 9.89,
+      "merchant_qris_juta": 6.51,
+      "volume_transaksi_juta": 37.9
+    },
+    {
+      "tanggal": "2020-07-01",
+      "nilai_transaksi_triliun": 3.24,
+      "pengguna_qris_juta": 10.68,
+      "merchant_qris_juta": 7.15,
+      "volume_transaksi_juta": 40.2
+    },
+    {
+      "tanggal": "2020-08-01",
+      "nilai_transaksi_triliun": 3.52,
+      "pengguna_qris_juta": 11.34,
+      "merchant_qris_juta": 7.51,
+      "volume_transaksi_juta": 43.8
+    },
+    {
+      "tanggal": "2020-09-01",
+      "nilai_transaksi_triliun": 3.55,
+      "pengguna_qris_juta": 11.75,
+      "merchant_qris_juta": 8.09,
+      "volume_transaksi_juta": 45.7
+    },
+    {
+      "tanggal": "2020-10-01",
+      "nilai_transaksi_triliun": 3.74,
+      "pengguna_qris_juta": 12.45,
+      "merchant_qris_juta": 8.85,
+      "volume_transaksi_juta": 48
+    },
+    {
+      "tanggal": "2020-11-01",
+      "nilai_transaksi_triliun": 4.36,
+      "pengguna_qris_juta": 12.99,
+      "merchant_qris_juta": 9.56,
+      "volume_transaksi_juta": 53.9
+    },
+    {
+      "tanggal": "2020-12-01",
+      "nilai_transaksi_triliun": 4.56,
+      "pengguna_qris_juta": 13.98,
+      "merchant_qris_juta": 9.99,
+      "volume_transaksi_juta": 59.6
+    },
+    {
+      "tanggal": "2021-01-01",
+      "nilai_transaksi_triliun": 4.24,
+      "pengguna_qris_juta": 14.53,
+      "merchant_qris_juta": 10.61,
+      "volume_transaksi_juta": 54
+    },
+    {
+      "tanggal": "2021-02-01",
+      "nilai_transaksi_triliun": 4.49,
+      "pengguna_qris_juta": 15.56,
+      "merchant_qris_juta": 11.35,
+      "volume_transaksi_juta": 55.2
+    },
+    {
+      "tanggal": "2021-03-01",
+      "nilai_transaksi_triliun": 5.59,
+      "pengguna_qris_juta": 16.08,
+      "merchant_qris_juta": 12.02,
+      "volume_transaksi_juta": 71.3
+    },
+    {
+      "tanggal": "2021-04-01",
+      "nilai_transaksi_triliun": 5.48,
+      "pengguna_qris_juta": 17.14,
+      "merchant_qris_juta": 12.81,
+      "volume_transaksi_juta": 70
+    },
+    {
+      "tanggal": "2021-05-01",
+      "nilai_transaksi_triliun": 5.72,
+      "pengguna_qris_juta": 17.87,
+      "merchant_qris_juta": 13.92,
+      "volume_transaksi_juta": 77.1
+    },
+    {
+      "tanggal": "2021-06-01",
+      "nilai_transaksi_triliun": 6.02,
+      "pengguna_qris_juta": 19.03,
+      "merchant_qris_juta": 14.42,
+      "volume_transaksi_juta": 79.7
+    },
+    {
+      "tanggal": "2021-07-01",
+      "nilai_transaksi_triliun": 6.85,
+      "pengguna_qris_juta": 19.63,
+      "merchant_qris_juta": 15.14,
+      "volume_transaksi_juta": 84.1
+    },
+    {
+      "tanggal": "2021-08-01",
+      "nilai_transaksi_triliun": 7.03,
+      "pengguna_qris_juta": 20.9,
+      "merchant_qris_juta": 15.99,
+      "volume_transaksi_juta": 90.6
+    },
+    {
+      "tanggal": "2021-09-01",
+      "nilai_transaksi_triliun": 7.39,
+      "pengguna_qris_juta": 21.78,
+      "merchant_qris_juta": 16.77,
+      "volume_transaksi_juta": 93.1
+    },
+    {
+      "tanggal": "2021-10-01",
+      "nilai_transaksi_triliun": 7.91,
+      "pengguna_qris_juta": 22.65,
+      "merchant_qris_juta": 17.66,
+      "volume_transaksi_juta": 99.1
+    },
+    {
+      "tanggal": "2021-11-01",
+      "nilai_transaksi_triliun": 8.55,
+      "pengguna_qris_juta": 23.84,
+      "merchant_qris_juta": 18.3,
+      "volume_transaksi_juta": 112.2
+    },
+    {
+      "tanggal": "2021-12-01",
+      "nilai_transaksi_triliun": 9.19,
+      "pengguna_qris_juta": 24.9,
+      "merchant_qris_juta": 19.03,
+      "volume_transaksi_juta": 115.3
+    },
+    {
+      "tanggal": "2022-01-01",
+      "nilai_transaksi_triliun": 8.77,
+      "pengguna_qris_juta": 25.71,
+      "merchant_qris_juta": 19.91,
+      "volume_transaksi_juta": 112.3
+    },
+    {
+      "tanggal": "2022-02-01",
+      "nilai_transaksi_triliun": 9.63,
+      "pengguna_qris_juta": 26.92,
+      "merchant_qris_juta": 20.69,
+      "volume_transaksi_juta": 123.7
+    },
+    {
+      "tanggal": "2022-03-01",
+      "nilai_transaksi_triliun": 11.15,
+      "pengguna_qris_juta": 27.8,
+      "merchant_qris_juta": 21.41,
+      "volume_transaksi_juta": 139.4
+    },
+    {
+      "tanggal": "2022-04-01",
+      "nilai_transaksi_triliun": 11.65,
+      "pengguna_qris_juta": 29.09,
+      "merchant_qris_juta": 22,
+      "volume_transaksi_juta": 141.2
+    },
+    {
+      "tanggal": "2022-05-01",
+      "nilai_transaksi_triliun": 11.78,
+      "pengguna_qris_juta": 30.38,
+      "merchant_qris_juta": 22.92,
+      "volume_transaksi_juta": 143.6
+    },
+    {
+      "tanggal": "2022-06-01",
+      "nilai_transaksi_triliun": 12.02,
+      "pengguna_qris_juta": 31.02,
+      "merchant_qris_juta": 23.5,
+      "volume_transaksi_juta": 150.6
+    },
+    {
+      "tanggal": "2022-07-01",
+      "nilai_transaksi_triliun": 12.93,
+      "pengguna_qris_juta": 32.24,
+      "merchant_qris_juta": 24.06,
+      "volume_transaksi_juta": 161.4
+    },
+    {
+      "tanggal": "2022-08-01",
+      "nilai_transaksi_triliun": 13.79,
+      "pengguna_qris_juta": 33.12,
+      "merchant_qris_juta": 24.68,
+      "volume_transaksi_juta": 168.5
+    },
+    {
+      "tanggal": "2022-09-01",
+      "nilai_transaksi_triliun": 14.08,
+      "pengguna_qris_juta": 34.1,
+      "merchant_qris_juta": 25.17,
+      "volume_transaksi_juta": 176.1
+    },
+    {
+      "tanggal": "2022-10-01",
+      "nilai_transaksi_triliun": 15.61,
+      "pengguna_qris_juta": 35.22,
+      "merchant_qris_juta": 26,
+      "volume_transaksi_juta": 196.4
+    },
+    {
+      "tanggal": "2022-11-01",
+      "nilai_transaksi_triliun": 17.01,
+      "pengguna_qris_juta": 36.06,
+      "merchant_qris_juta": 26.34,
+      "volume_transaksi_juta": 203.6
+    },
+    {
+      "tanggal": "2022-12-01",
+      "nilai_transaksi_triliun": 17.82,
+      "pengguna_qris_juta": 37.21,
+      "merchant_qris_juta": 26.88,
+      "volume_transaksi_juta": 221
+    },
+    {
+      "tanggal": "2023-01-01",
+      "nilai_transaksi_triliun": 17.41,
+      "pengguna_qris_juta": 38.17,
+      "merchant_qris_juta": 27.36,
+      "volume_transaksi_juta": 213.3
+    },
+    {
+      "tanggal": "2023-02-01",
+      "nilai_transaksi_triliun": 17.97,
+      "pengguna_qris_juta": 39.05,
+      "merchant_qris_juta": 27.79,
+      "volume_transaksi_juta": 232.4
+    },
+    {
+      "tanggal": "2023-03-01",
+      "nilai_transaksi_triliun": 20.59,
+      "pengguna_qris_juta": 39.87,
+      "merchant_qris_juta": 28.29,
+      "volume_transaksi_juta": 253.9
+    },
+    {
+      "tanggal": "2023-04-01",
+      "nilai_transaksi_triliun": 20.76,
+      "pengguna_qris_juta": 40.65,
+      "merchant_qris_juta": 28.58,
+      "volume_transaksi_juta": 250.4
+    },
+    {
+      "tanggal": "2023-05-01",
+      "nilai_transaksi_triliun": 22.38,
+      "pengguna_qris_juta": 41.22,
+      "merchant_qris_juta": 28.95,
+      "volume_transaksi_juta": 287.6
+    },
+    {
+      "tanggal": "2023-06-01",
+      "nilai_transaksi_triliun": 22.95,
+      "pengguna_qris_juta": 41.98,
+      "merchant_qris_juta": 29.11,
+      "volume_transaksi_juta": 281.9
+    },
+    {
+      "tanggal": "2023-07-01",
+      "nilai_transaksi_triliun": 23.4,
+      "pengguna_qris_juta": 42.63,
+      "merchant_qris_juta": 29.47,
+      "volume_transaksi_juta": 295.8
+    },
+    {
+      "tanggal": "2023-08-01",
+      "nilai_transaksi_triliun": 25.8,
+      "pengguna_qris_juta": 43.6,
+      "merchant_qris_juta": 29.89,
+      "volume_transaksi_juta": 312.5
+    },
+    {
+      "tanggal": "2023-09-01",
+      "nilai_transaksi_triliun": 26.11,
+      "pengguna_qris_juta": 44.09,
+      "merchant_qris_juta": 29.95,
+      "volume_transaksi_juta": 324.6
+    },
+    {
+      "tanggal": "2023-10-01",
+      "nilai_transaksi_triliun": 29.14,
+      "pengguna_qris_juta": 44.97,
+      "merchant_qris_juta": 30.26,
+      "volume_transaksi_juta": 362.6
+    },
+    {
+      "tanggal": "2023-11-01",
+      "nilai_transaksi_triliun": 31.09,
+      "pengguna_qris_juta": 45.22,
+      "merchant_qris_juta": 30.39,
+      "volume_transaksi_juta": 390.2
+    },
+    {
+      "tanggal": "2023-12-01",
+      "nilai_transaksi_triliun": 32.63,
+      "pengguna_qris_juta": 45.82,
+      "merchant_qris_juta": 30.71,
+      "volume_transaksi_juta": 413
+    },
+    {
+      "tanggal": "2024-01-01",
+      "nilai_transaksi_triliun": 31.65,
+      "pengguna_qris_juta": 46.48,
+      "merchant_qris_juta": 30.87,
+      "volume_transaksi_juta": 393.8
+    },
+    {
+      "tanggal": "2024-02-01",
+      "nilai_transaksi_triliun": 31.88,
+      "pengguna_qris_juta": 46.84,
+      "merchant_qris_juta": 31.18,
+      "volume_transaksi_juta": 400
+    },
+    {
+      "tanggal": "2024-03-01",
+      "nilai_transaksi_triliun": 35.42,
+      "pengguna_qris_juta": 47.1,
+      "merchant_qris_juta": 31.18,
+      "volume_transaksi_juta": 436.8
+    },
+    {
+      "tanggal": "2024-04-01",
+      "nilai_transaksi_triliun": 38.67,
+      "pengguna_qris_juta": 47.86,
+      "merchant_qris_juta": 31.35,
+      "volume_transaksi_juta": 492.4
+    },
+    {
+      "tanggal": "2024-05-01",
+      "nilai_transaksi_triliun": 38.81,
+      "pengguna_qris_juta": 48.11,
+      "merchant_qris_juta": 31.41,
+      "volume_transaksi_juta": 484.1
+    },
+    {
+      "tanggal": "2024-06-01",
+      "nilai_transaksi_triliun": 38.68,
+      "pengguna_qris_juta": 48.73,
+      "merchant_qris_juta": 31.41,
+      "volume_transaksi_juta": 475.5
+    },
+    {
+      "tanggal": "2024-07-01",
+      "nilai_transaksi_triliun": 40.86,
+      "pengguna_qris_juta": 48.83,
+      "merchant_qris_juta": 31.73,
+      "volume_transaksi_juta": 501
+    },
+    {
+      "tanggal": "2024-08-01",
+      "nilai_transaksi_triliun": 41.2,
+      "pengguna_qris_juta": 49.05,
+      "merchant_qris_juta": 31.73,
+      "volume_transaksi_juta": 509.2
+    },
+    {
+      "tanggal": "2024-09-01",
+      "nilai_transaksi_triliun": 43.72,
+      "pengguna_qris_juta": 49.7,
+      "merchant_qris_juta": 31.73,
+      "volume_transaksi_juta": 571.6
+    },
+    {
+      "tanggal": "2024-10-01",
+      "nilai_transaksi_triliun": 45.21,
+      "pengguna_qris_juta": 49.7,
+      "merchant_qris_juta": 32.01,
+      "volume_transaksi_juta": 578.2
+    },
+    {
+      "tanggal": "2024-11-01",
+      "nilai_transaksi_triliun": 50.04,
+      "pengguna_qris_juta": 49.82,
+      "merchant_qris_juta": 32.14,
+      "volume_transaksi_juta": 622.8
+    },
+    {
+      "tanggal": "2024-12-01",
+      "nilai_transaksi_triliun": 53.83,
+      "pengguna_qris_juta": 50.35,
+      "merchant_qris_juta": 32.14,
+      "volume_transaksi_juta": 647.5
+    }
+  ],
+  "projection": [
+    {
+      "tanggal": "2025-01-01",
+      "nilai_transaksi_triliun": 49.2,
+      "ci80_bawah": 47.13,
+      "ci80_atas": 51.38
+    },
+    {
+      "tanggal": "2025-02-01",
+      "nilai_transaksi_triliun": 49.5,
+      "ci80_bawah": 47.38,
+      "ci80_atas": 51.71
+    },
+    {
+      "tanggal": "2025-03-01",
+      "nilai_transaksi_triliun": 55.15,
+      "ci80_bawah": 52.71,
+      "ci80_atas": 57.69
+    },
+    {
+      "tanggal": "2025-04-01",
+      "nilai_transaksi_triliun": 57.08,
+      "ci80_bawah": 54.42,
+      "ci80_atas": 59.87
+    },
+    {
+      "tanggal": "2025-05-01",
+      "nilai_transaksi_triliun": 58.76,
+      "ci80_bawah": 55.81,
+      "ci80_atas": 61.86
+    },
+    {
+      "tanggal": "2025-06-01",
+      "nilai_transaksi_triliun": 58.79,
+      "ci80_bawah": 55.56,
+      "ci80_atas": 62.2
+    },
+    {
+      "tanggal": "2025-07-01",
+      "nilai_transaksi_triliun": 60.36,
+      "ci80_bawah": 56.7,
+      "ci80_atas": 64.25
+    },
+    {
+      "tanggal": "2025-08-01",
+      "nilai_transaksi_triliun": 63.12,
+      "ci80_bawah": 58.9,
+      "ci80_atas": 67.65
+    },
+    {
+      "tanggal": "2025-09-01",
+      "nilai_transaksi_triliun": 64.78,
+      "ci80_bawah": 60,
+      "ci80_atas": 69.95
+    },
+    {
+      "tanggal": "2025-10-01",
+      "nilai_transaksi_triliun": 69.1,
+      "ci80_bawah": 63.48,
+      "ci80_atas": 75.21
+    },
+    {
+      "tanggal": "2025-11-01",
+      "nilai_transaksi_triliun": 74.45,
+      "ci80_bawah": 67.83,
+      "ci80_atas": 81.72
+    },
+    {
+      "tanggal": "2025-12-01",
+      "nilai_transaksi_triliun": 78.49,
+      "ci80_bawah": 70.89,
+      "ci80_atas": 86.91
+    },
+    {
+      "tanggal": "2026-01-01",
+      "nilai_transaksi_triliun": 73.46,
+      "ci80_bawah": 65.12,
+      "ci80_atas": 82.88
+    },
+    {
+      "tanggal": "2026-02-01",
+      "nilai_transaksi_triliun": 73.47,
+      "ci80_bawah": 64.5,
+      "ci80_atas": 83.69
+    },
+    {
+      "tanggal": "2026-03-01",
+      "nilai_transaksi_triliun": 81.24,
+      "ci80_bawah": 70.57,
+      "ci80_atas": 93.51
+    },
+    {
+      "tanggal": "2026-04-01",
+      "nilai_transaksi_triliun": 85.93,
+      "ci80_bawah": 73.81,
+      "ci80_atas": 100.04
+    },
+    {
+      "tanggal": "2026-05-01",
+      "nilai_transaksi_triliun": 86.84,
+      "ci80_bawah": 73.71,
+      "ci80_atas": 102.3
+    },
+    {
+      "tanggal": "2026-06-01",
+      "nilai_transaksi_triliun": 86.27,
+      "ci80_bawah": 72.33,
+      "ci80_atas": 102.9
+    },
+    {
+      "tanggal": "2026-07-01",
+      "nilai_transaksi_triliun": 89.46,
+      "ci80_bawah": 74.05,
+      "ci80_atas": 108.06
+    },
+    {
+      "tanggal": "2026-08-01",
+      "nilai_transaksi_triliun": 91.4,
+      "ci80_bawah": 74.68,
+      "ci80_atas": 111.86
+    },
+    {
+      "tanggal": "2026-09-01",
+      "nilai_transaksi_triliun": 95.03,
+      "ci80_bawah": 76.63,
+      "ci80_atas": 117.85
+    },
+    {
+      "tanggal": "2026-10-01",
+      "nilai_transaksi_triliun": 99.36,
+      "ci80_bawah": 79.06,
+      "ci80_atas": 124.87
+    },
+    {
+      "tanggal": "2026-11-01",
+      "nilai_transaksi_triliun": 108.15,
+      "ci80_bawah": 84.91,
+      "ci80_atas": 137.77
+    },
+    {
+      "tanggal": "2026-12-01",
+      "nilai_transaksi_triliun": 114.82,
+      "ci80_bawah": 88.93,
+      "ci80_atas": 148.24
+    }
+  ],
+  "cv_comparison": [
+    {
+      "model": "SARIMA",
+      "h": 3,
+      "mape": 3.968,
+      "rmse": 1.495,
+      "smape": 3.873,
+      "mape_std": 1.752,
+      "n_window": 22
+    },
+    {
+      "model": "SARIMAX (+merchant)",
+      "h": 3,
+      "mape": 3.57,
+      "rmse": 1.313,
+      "smape": 3.541,
+      "mape_std": 1.755,
+      "n_window": 22
+    },
+    {
+      "model": "ETS (Holt-Winters)",
+      "h": 3,
+      "mape": 3.336,
+      "rmse": 1.147,
+      "smape": 3.375,
+      "mape_std": 1.737,
+      "n_window": 22
+    },
+    {
+      "model": "Prophet",
+      "h": 3,
+      "mape": 3.417,
+      "rmse": 1.364,
+      "smape": 3.334,
+      "mape_std": 1.869,
+      "n_window": 22
+    },
+    {
+      "model": "Drift",
+      "h": 3,
+      "mape": 5.959,
+      "rmse": 2.177,
+      "smape": 6.219,
+      "mape_std": 3.125,
+      "n_window": 22
+    },
+    {
+      "model": "Seasonal-Naive+drift",
+      "h": 3,
+      "mape": 36.961,
+      "rmse": 11.719,
+      "smape": 45.507,
+      "mape_std": 2.755,
+      "n_window": 22
+    },
+    {
+      "model": "SARIMA",
+      "h": 12,
+      "mape": 6.816,
+      "rmse": 2.99,
+      "smape": 6.487,
+      "mape_std": 2.07,
+      "n_window": 13
+    },
+    {
+      "model": "SARIMAX (+merchant)",
+      "h": 12,
+      "mape": 5.605,
+      "rmse": 2.181,
+      "smape": 5.605,
+      "mape_std": 3.55,
+      "n_window": 13
+    },
+    {
+      "model": "ETS (Holt-Winters)",
+      "h": 12,
+      "mape": 6.517,
+      "rmse": 2.481,
+      "smape": 6.862,
+      "mape_std": 3.581,
+      "n_window": 13
+    },
+    {
+      "model": "Prophet",
+      "h": 12,
+      "mape": 4.951,
+      "rmse": 2.301,
+      "smape": 4.758,
+      "mape_std": 1.745,
+      "n_window": 13
+    },
+    {
+      "model": "Drift",
+      "h": 12,
+      "mape": 15.195,
+      "rmse": 6.016,
+      "smape": 16.868,
+      "mape_std": 3.294,
+      "n_window": 13
+    },
+    {
+      "model": "Seasonal-Naive+drift",
+      "h": 12,
+      "mape": 26.793,
+      "rmse": 8.321,
+      "smape": 31.613,
+      "mape_std": 2.319,
+      "n_window": 13
+    }
+  ]
+}

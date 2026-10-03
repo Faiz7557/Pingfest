@@ -1,26 +1,172 @@
 @import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --navy-midnight: #001D39;
+  --navy-deep: #0A4174;
+  --steel-blue: #49769F;
+  --teal-ocean: #4E8EA2;
+  --muted-teal: #6EA2B3;
+  --sky-blue: #7BBDE8;
+  --ice-blue: #BDD8E9;
+
+  --cluster-maju: #10B981;
+  --cluster-berkembang: #7BBDE8;
+  --cluster-tertinggal: #F59E0B;
+  --cluster-ekstrem: #EF4444;
+
+  --bg-page: #EDF4F9;
+  --bg-card: #FFFFFF;
+  --border-dark: #001D39;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-page);
+  color: #001D39;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hide scrollbar for clean horizontal swipeable pills */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Background dot grid pattern like Pingfest style */
+.bg-grid-pattern {
+  background-color: #EDF4F9;
+  background-image: radial-gradient(rgba(73, 118, 159, 0.28) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+/* Pingfest Chunky Neobrutalist Card Style */
+.pingfest-card {
+  background: #FFFFFF;
+  border: 2px solid #001D39;
+  border-radius: 1.25rem;
+  box-shadow: 3px 3px 0px #001D39;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 640px) {
+  .pingfest-card {
+    box-shadow: 4px 4px 0px #001D39;
+  }
+}
+
+.pingfest-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 5px 5px 0px #001D39;
+}
+
+/* Static card without hover jump */
+.pingfest-card-static {
+  background: #FFFFFF;
+  border: 2px solid #001D39;
+  border-radius: 1.25rem;
+  box-shadow: 4px 4px 0px #001D39;
+}
+
+/* Pingfest Interactive Button */
+.pingfest-btn {
+  border: 2px solid #001D39;
+  border-radius: 9999px;
+  box-shadow: 3px 3px 0px #001D39;
+  font-weight: 700;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.pingfest-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px #001D39;
+}
+
+.pingfest-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #001D39;
+}
+
+/* Secondary Button / Pill */
+.pingfest-pill {
+  border: 1.5px solid #001D39;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #EDF4F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #49769F;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #001D39;
+}
+
+/* Leaflet map frame in pingfest style */
+.leaflet-container {
+  background: #F0F6FA !important;
+  font-family: inherit !important;
+  border-radius: 1rem;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #FFFFFF !important;
+  color: #001D39 !important;
+  border: 2px solid #001D39 !important;
+  border-radius: 1rem !important;
+  box-shadow: 4px 4px 0px #001D39 !important;
+}
+
+.leaflet-popup-tip {
+  background: #FFFFFF !important;
+  border: 2px solid #001D39 !important;
+}
+
+/* Spatial Projection Lines Animation */
+@keyframes spatialDash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.spatial-projection-line {
+  animation: spatialDash 1.2s linear infinite;
+  stroke-linecap: round;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.35;
+  }
+}
+
+.pulse-node-glow {
+  animation: pulseGlow 1.5s ease-in-out infinite;
 }

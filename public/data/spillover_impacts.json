@@ -1,0 +1,30 @@
+[
+  {
+    "variabel": "Rata-rata Lama Sekolah",
+    "langsung": 0.425,
+    "tak_langsung (spillover)": 6.127,
+    "total": 6.553,
+    "spillover_%": 93.5
+  },
+  {
+    "variabel": "IPM",
+    "langsung": 1.808,
+    "tak_langsung (spillover)": -0.679,
+    "total": 1.129,
+    "spillover_%": -60.1
+  },
+  {
+    "variabel": "PDRB per Kapita (log)",
+    "langsung": 4.26,
+    "tak_langsung (spillover)": 4.307,
+    "total": 8.567,
+    "spillover_%": 50.3
+  },
+  {
+    "variabel": "TPT",
+    "langsung": 0.298,
+    "tak_langsung (spillover)": -2.396,
+    "total": -2.098,
+    "spillover_%": 114.2
+  }
+]

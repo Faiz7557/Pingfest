@@ -1,0 +1,32 @@
+[
+  {
+    "Model": "OLS",
+    "AICc": 240,
+    "R2/pseudo-R2": 0.838
+  },
+  {
+    "Model": "SLX",
+    "AICc": 239.5,
+    "R2/pseudo-R2": 0.885
+  },
+  {
+    "Model": "SAR",
+    "AICc": 236.1,
+    "R2/pseudo-R2": 0.867
+  },
+  {
+    "Model": "SEM",
+    "AICc": 233.9,
+    "R2/pseudo-R2": 0.832
+  },
+  {
+    "Model": "SDM",
+    "AICc": 241.8,
+    "R2/pseudo-R2": 0.891
+  },
+  {
+    "Model": "GWR",
+    "AICc": 229.6,
+    "R2/pseudo-R2": 0.915
+  }
+]

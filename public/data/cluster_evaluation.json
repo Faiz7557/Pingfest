@@ -1,0 +1,72 @@
+[
+  {
+    "algo": "KMeans",
+    "k": 2,
+    "silhouette": 0.664,
+    "DBI": 0.542,
+    "CH": 27
+  },
+  {
+    "algo": "Ward",
+    "k": 2,
+    "silhouette": 0.664,
+    "DBI": 0.542,
+    "CH": 27
+  },
+  {
+    "algo": "KMeans",
+    "k": 3,
+    "silhouette": 0.45,
+    "DBI": 0.725,
+    "CH": 29.5
+  },
+  {
+    "algo": "Ward",
+    "k": 3,
+    "silhouette": 0.501,
+    "DBI": 0.564,
+    "CH": 28.4
+  },
+  {
+    "algo": "KMeans",
+    "k": 4,
+    "silhouette": 0.424,
+    "DBI": 0.678,
+    "CH": 36.1
+  },
+  {
+    "algo": "Ward",
+    "k": 4,
+    "silhouette": 0.419,
+    "DBI": 0.64,
+    "CH": 34.4
+  },
+  {
+    "algo": "KMeans",
+    "k": 5,
+    "silhouette": 0.449,
+    "DBI": 0.567,
+    "CH": 45
+  },
+  {
+    "algo": "Ward",
+    "k": 5,
+    "silhouette": 0.45,
+    "DBI": 0.659,
+    "CH": 44
+  },
+  {
+    "algo": "KMeans",
+    "k": 6,
+    "silhouette": 0.443,
+    "DBI": 0.507,
+    "CH": 52
+  },
+  {
+    "algo": "Ward",
+    "k": 6,
+    "silhouette": 0.443,
+    "DBI": 0.507,
+    "CH": 52
+  }
+]
