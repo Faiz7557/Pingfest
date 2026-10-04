@@ -35,19 +35,19 @@ export default function SigapSolution() {
     },
     {
       num: "03",
-      title: "DEPLOY (Eksekusi)",
-      actor: "BAKTI & Operator Seluler",
-      icon: Send,
-      color: "#F59E0B",
-      desc: "Mengeksekusi paket intervensi spesifik: terminal satelit SATRIA-1 & PLTS mikro di Klaster Ekstrem, pelatihan digital di Klaster Sedang."
-    },
-    {
-      num: "04",
       title: "MONITOR (Pantau)",
       actor: "Kolaborasi Hibrida",
       icon: RefreshCw,
-      color: "#001D39",
+      color: "#F59E0B",
       desc: "Memperbarui indeks secara berkala berbasis rilis data Susenas/Podes baru sebagai mekanisme evaluasi berkelanjutan menuju Indonesia Emas 2045."
+    },
+    {
+      num: "04",
+      title: "DEPLOY (Eksekusi)",
+      actor: "BAKTI & Operator Seluler",
+      icon: Send,
+      color: "#001D39",
+      desc: "Mengeksekusi paket intervensi spesifik: terminal satelit SATRIA-1 & PLTS mikro di Klaster Ekstrem, pelatihan digital di Klaster Sedang."
     }
   ];
 
@@ -95,11 +95,11 @@ export default function SigapSolution() {
         </div>
       </div>
 
-      {/* 4-Step Workflow: Map - Prioritize - Deploy - Monitor */}
+      {/* 4-Step Workflow: Map - Prioritize - Monitor - Deploy */}
       <div className="space-y-3">
         <h3 className="text-base font-black text-[#001D39] flex items-center gap-2">
           <Compass className="w-5 h-5 text-[#4E8EA2]" />
-          Alur Kerja Hibrida: Map &rarr; Prioritize &rarr; Deploy &rarr; Monitor
+          Alur Kerja Hibrida: Map &rarr; Prioritize &rarr; Monitor &rarr; Deploy
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">

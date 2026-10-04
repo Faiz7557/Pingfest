@@ -980,20 +980,20 @@ export default function Hero3DSection({ provinces = [], onSelectProvince, embedd
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#001D39]/70 via-transparent to-[#001D39]/80" />
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#001D39]/50 via-transparent to-transparent" />
 
-        {/* ─── TOP-LEFT: SIGAP BRANDING HUD ─── */}
-        <div className="absolute top-3 left-3 sm:top-6 sm:left-6 z-20 pointer-events-none max-w-[230px] sm:max-w-md">
+        {/* ─── TOP-LEFT: SIGAP BRANDING HUD & TELEMETRY METRICS ─── */}
+        <div className={`absolute top-3 left-3 sm:top-5 sm:left-6 z-20 pointer-events-none transition-all duration-300 ${selectedRegion ? "opacity-0 pointer-events-none" : "opacity-100"}`}>
           {/* SIGAP Title */}
           <div>
-            <h1 className="text-3xl sm:text-6xl lg:text-8xl font-black text-white tracking-tighter leading-none select-none" style={{ textShadow: '2px 2px 0px #7BBDE8, 0 0 25px rgba(123,189,232,0.3)' }}>
+            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black text-white tracking-tighter leading-none select-none" style={{ textShadow: '2px 2px 0px #7BBDE8, 0 0 25px rgba(123,189,232,0.3)' }}>
               SIGAP
             </h1>
-            <p className="text-[10px] sm:text-base font-black text-[#7BBDE8] tracking-tight mt-1 sm:mt-1.5 truncate">
+            <p className="text-[10px] sm:text-xs font-black text-[#7BBDE8] tracking-tight mt-1 sm:mt-1.5 truncate">
               Sistem Informasi Geospasial Akses Presisi
             </p>
           </div>
 
           {/* Mobile Sleek Single-Line Metrics Chip */}
-          <div className="flex sm:hidden items-center gap-1.5 px-2 py-1 rounded-lg bg-white/10 backdrop-blur-md border border-white/15 shadow-sm mt-1.5 pointer-events-auto w-fit">
+          <div className="flex sm:hidden items-center gap-1.5 px-2 py-1 rounded-lg bg-[#001D39]/80 backdrop-blur-md border border-white/15 shadow-sm mt-1.5 pointer-events-auto w-fit">
             <span className="text-[9px] font-black text-white flex items-center gap-1">
               <span className="w-1.5 h-1.5 rounded-full bg-[#7BBDE8]" />
               38 Prov
@@ -1007,6 +1007,26 @@ export default function Hero3DSection({ provinces = [], onSelectProvince, embedd
             <span className="text-[9px] font-black text-[#F59E0B]">
               R² 0.915
             </span>
+          </div>
+
+          {/* Desktop Key Metrics HUD Cards (Clean Top-Left Docking) */}
+          <div className="hidden sm:flex items-center gap-2 mt-2.5 pointer-events-auto">
+            {[
+              { value: "38", label: "Provinsi", icon: Globe, color: "#7BBDE8" },
+              { value: "4", label: "Klaster", icon: Zap, color: "#10B981" },
+              { value: "0.915", label: "R² GWR", icon: BarChart3, color: "#F59E0B" },
+            ].map((m) => (
+              <div 
+                key={m.label} 
+                className="px-2.5 py-1.5 rounded-xl bg-[#001D39]/85 backdrop-blur-md border border-white/15 shadow-md flex items-center gap-2"
+              >
+                <m.icon className="w-3.5 h-3.5 flex-shrink-0" style={{ color: m.color }} />
+                <div className="flex flex-col">
+                  <span className="text-xs lg:text-sm font-black text-white leading-tight">{m.value}</span>
+                  <span className="text-[9px] font-bold text-white/50 leading-none">{m.label}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -1039,23 +1059,6 @@ export default function Hero3DSection({ provinces = [], onSelectProvince, embedd
             <Radio className="w-3 h-3 text-[#10B981] animate-pulse" />
             LIVE 3D
           </span>
-        </div>
-
-        {/* ─── BOTTOM-LEFT: FLOATING METRICS HUD (Desktop only) ─── */}
-        <div className="absolute bottom-6 left-6 z-20 hidden sm:flex items-end gap-2">
-          <div className="flex gap-1.5">
-            {[
-              { value: "38", label: "Provinsi", icon: Globe, color: "#7BBDE8" },
-              { value: "4", label: "Klaster", icon: Zap, color: "#10B981" },
-              { value: "0.915", label: "R² GWR", icon: BarChart3, color: "#F59E0B" },
-            ].map((m) => (
-              <div key={m.label} className="px-3 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 shadow-lg min-w-[70px]">
-                <m.icon className="w-3 h-3 mb-0.5" style={{ color: m.color }} />
-                <div className="text-base sm:text-lg font-black text-white leading-none">{m.value}</div>
-                <div className="text-[9px] font-bold text-white/50 leading-tight mt-0.5">{m.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* ─── BOTTOM-CENTER: LENS SWITCHER TOOLBAR (Desktop only) ─── */}
@@ -1223,9 +1226,9 @@ export default function Hero3DSection({ provinces = [], onSelectProvince, embedd
           </div>
         )}
 
-        {/* ─── IDLE: Center Instruction ─── */}
-        {!selectedRegion && !hoveredProvName && (
-          <div className="absolute bottom-24 sm:bottom-24 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
+        {/* ─── IDLE: Center Instruction (Hidden during Vision 2045 mode) ─── */}
+        {!selectedRegion && !hoveredProvName && activeLens !== "vision2045" && (
+          <div className="absolute bottom-16 sm:bottom-16 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
             <div className="flex flex-col items-center gap-0.5 animate-bounce" style={{ animationDuration: '3s' }}>
               <span className="text-[9px] sm:text-[10px] font-bold text-white/40">Geser &amp; putar 3D</span>
               <ChevronDown className="w-3.5 h-3.5 text-white/30" />
@@ -1233,15 +1236,17 @@ export default function Hero3DSection({ provinces = [], onSelectProvince, embedd
           </div>
         )}
 
-        {/* ─── VISION 2045 SLIDER OVERLAY ─── */}
+        {/* ─── VISION 2045 SLIDER OVERLAY (Centered directly above Lens Toolbar) ─── */}
         {activeLens === "vision2045" && (
-          <div className="absolute bottom-24 sm:bottom-20 left-3 sm:left-6 right-3 sm:right-auto sm:w-96 bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/20 shadow-2xl z-20 space-y-1.5">
+          <div className="absolute bottom-20 sm:bottom-16 left-1/2 -translate-x-1/2 w-[92%] sm:w-[380px] md:w-[400px] bg-[#001D39]/95 backdrop-blur-xl p-3.5 rounded-2xl border border-white/20 shadow-[0_10px_35px_rgba(0,0,0,0.5)] z-20 space-y-2 animate-in fade-in slide-in-from-bottom-2 duration-200">
             <div className="flex justify-between items-center text-xs font-black text-white">
               <span className="flex items-center gap-1.5">
                 <TrendingUp className="w-3.5 h-3.5 text-[#10B981]" />
-                Indonesia Emas
+                <span>Proyeksi Visi Indonesia Emas</span>
               </span>
-              <span className="text-[#10B981] font-mono text-sm">{visionYear}</span>
+              <span className="text-[#10B981] font-mono text-sm font-black px-2 py-0.5 rounded-md bg-[#10B981]/20 border border-[#10B981]/30">
+                {visionYear}
+              </span>
             </div>
             <input
               type="range"
@@ -1256,10 +1261,10 @@ export default function Hero3DSection({ provinces = [], onSelectProvince, embedd
               }}
               className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-[#10B981]"
             />
-            <div className="flex justify-between text-[9px] font-bold text-white/40">
-              <span>2026</span>
-              <span>2035</span>
-              <span>2045</span>
+            <div className="flex justify-between text-[9px] font-bold text-white/50 px-0.5">
+              <span>2026 (Baseline)</span>
+              <span>2035 (Akselerasi)</span>
+              <span>2045 (Visi Emas)</span>
             </div>
           </div>
         )}
