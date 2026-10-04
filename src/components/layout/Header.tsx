@@ -17,7 +17,7 @@ export default function Header() {
               <span className="text-2xl font-black tracking-tight text-white flex items-center gap-1.5">
                 SIGAP
                 <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-[#7BBDE8]/20 text-[#7BBDE8] border border-[#7BBDE8]/40">
-                  v1.0 Prototipe
+                  Prototipe
                 </span>
               </span>
               <span className="hidden sm:inline-block text-xs font-medium text-[#6EA2B3] border-l border-[#49769F]/50 pl-2">

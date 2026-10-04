@@ -36,10 +36,8 @@ export default function Home() {
     <div className="space-y-8 pb-10">
       {/* 3D Interactive Diorama Hero Scroll Entrance Section */}
       <ContainerScroll
-        badgeTitle="SIGAP SLATE v2.0 • DIGITAL TWIN 3D NUSANTARA"
-        badgeStatus="LIVE TELEMETRY"
-        containerHeight="h-[46rem] sm:h-[56rem] md:h-[68rem]"
-        cardHeight="h-[28rem] sm:h-[36rem] md:h-[44rem]"
+        containerHeight="h-[52rem] sm:h-[58rem] md:h-[68rem]"
+        cardHeight="h-[33rem] sm:h-[38rem] md:h-[44rem]"
         titleComponent={
           <div className="space-y-3.5">
             <div className="flex items-center justify-center flex-wrap gap-2">

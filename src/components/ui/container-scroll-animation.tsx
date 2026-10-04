@@ -6,8 +6,6 @@ import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 export interface ContainerScrollProps {
   titleComponent: string | React.ReactNode;
   children: React.ReactNode;
-  badgeTitle?: string;
-  badgeStatus?: string;
   containerHeight?: string;
   cardHeight?: string;
   className?: string;
@@ -16,8 +14,6 @@ export interface ContainerScrollProps {
 export const ContainerScroll = ({
   titleComponent,
   children,
-  badgeTitle = "SIGAP SLATE v2.0 • LIVE TELEMETRY",
-  badgeStatus = "AKTIF",
   containerHeight = "h-[48rem] sm:h-[58rem] md:h-[70rem]",
   cardHeight = "h-[28rem] sm:h-[35rem] md:h-[42rem]",
   className = "",
@@ -75,8 +71,6 @@ export const ContainerScroll = ({
           rotate={rotate}
           translate={translate}
           scale={scale}
-          badgeTitle={badgeTitle}
-          badgeStatus={badgeStatus}
           cardHeight={cardHeight}
         >
           {children}
@@ -108,16 +102,12 @@ export const Header = ({
 export const Card = ({
   rotate,
   scale,
-  badgeTitle,
-  badgeStatus,
   cardHeight,
   children,
 }: {
   rotate: MotionValue<number>;
   scale: MotionValue<number>;
   translate: MotionValue<number>;
-  badgeTitle: string;
-  badgeStatus: string;
   cardHeight: string;
   children: React.ReactNode;
 }) => {
@@ -132,8 +122,8 @@ export const Card = ({
       }}
       className={`max-w-6xl -mt-6 sm:-mt-10 mx-auto ${cardHeight} w-full border-3 sm:border-4 border-[#001D39] p-2 sm:p-3 md:p-4 bg-[#001D39] rounded-[24px] sm:rounded-[32px] md:rounded-[36px] flex flex-col`}
     >
-      {/* ─── Tablet Cockpit Chrome Header Bar ─── */}
-      <div className="flex items-center justify-between px-2 sm:px-3 py-1.5 sm:py-2 mb-1.5 sm:mb-2 bg-[#001D39] text-white select-none">
+      {/* ─── Sleek Tablet Bezel Header Bar ─── */}
+      <div className="flex items-center justify-between px-3 sm:px-4 py-1 sm:py-1.5 mb-1 sm:mb-1.5 bg-[#001D39] text-white select-none">
         {/* Left: Window Action Dots */}
         <div className="flex items-center gap-1.5">
           <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#EF4444] border border-[#001D39] shadow-xs inline-block" />
@@ -141,18 +131,15 @@ export const Card = ({
           <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#10B981] border border-[#001D39] shadow-xs inline-block" />
         </div>
 
-        {/* Center: Cockpit Telemetry Badge */}
-        <div className="px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-full bg-[#0A4174] border border-[#49769F]/40 text-[10px] sm:text-xs font-mono text-[#BDD8E9] flex items-center gap-1.5 sm:gap-2 shadow-inner max-w-[200px] sm:max-w-none truncate">
-          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#10B981] animate-pulse flex-shrink-0" />
-          <span className="font-bold tracking-tight truncate">{badgeTitle}</span>
+        {/* Center: Tablet Front Camera Sensor */}
+        <div className="flex items-center justify-center">
+          <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-[#0A4174] border border-[#49769F]/50 shadow-inner inline-block" />
         </div>
 
-        {/* Right: Operational Status Pill */}
+        {/* Right: Ambient Status Indicator */}
         <div className="flex items-center gap-2">
-          <span className="hidden sm:inline-flex px-2 py-0.5 rounded bg-[#BDD8E9] text-[#001D39] text-[9px] sm:text-[10px] font-black tracking-wider uppercase border border-[#001D39]">
-            {badgeStatus}
-          </span>
-          <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full border border-[#49769F] bg-[#0A4174] hidden sm:block" />
+          <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
+          <div className="w-2.5 h-2.5 rounded-full border border-[#49769F] bg-[#0A4174] hidden sm:block" />
         </div>
       </div>
 

@@ -27,6 +27,7 @@ import {
   Info
 } from "lucide-react";
 import { ProvinceData } from "@/lib/types";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 interface Hero3DSectionProps {
   provinces?: ProvinceData[];
@@ -128,10 +129,14 @@ export default function Hero3DSection({ provinces = [], onSelectProvince, embedd
     // SCENE SETUP
     const scene = new THREE.Scene();
 
-    // CAMERA (Isometric angle with low FOV for architectural miniature look)
+    // CAMERA (Adaptive isometric angle & FOV: wider FOV in portrait to display entire archipelago)
     const aspect = container.clientWidth / container.clientHeight;
-    const camera = new THREE.PerspectiveCamera(34, aspect, 0.1, 1000);
-    const defaultCamPos = new THREE.Vector3(15, 17, 16);
+    const isPortrait = aspect < 1.05;
+    const initialFov = isPortrait ? 44 : 34;
+    const camera = new THREE.PerspectiveCamera(initialFov, aspect, 0.1, 1000);
+    const defaultCamPos = isPortrait 
+      ? new THREE.Vector3(15.5, 20.0, 16.5) 
+      : new THREE.Vector3(15, 17, 16);
     const defaultLookAt = new THREE.Vector3(0, 0.4, 0);
     camera.position.copy(defaultCamPos);
     camera.lookAt(defaultLookAt);
@@ -768,7 +773,11 @@ export default function Hero3DSection({ provinces = [], onSelectProvince, embedd
 
     const resetViewHandler = () => {
       setSelectedRegion(null);
-      targetCamPos.copy(defaultCamPos);
+      const curAspect = container.clientWidth / container.clientHeight;
+      const curCamPos = curAspect < 1.05 
+        ? new THREE.Vector3(15.5, 20.0, 16.5) 
+        : new THREE.Vector3(15, 17, 16);
+      targetCamPos.copy(curCamPos);
       targetLookAt.copy(defaultLookAt);
       targetRotationX = 0;
       targetRotationY = 0;
@@ -797,7 +806,9 @@ export default function Hero3DSection({ provinces = [], onSelectProvince, embedd
       if (!container || !renderer || !camera) return;
       const width = container.clientWidth;
       const height = container.clientHeight;
-      camera.aspect = width / height;
+      const curAspect = width / height;
+      camera.aspect = curAspect;
+      camera.fov = curAspect < 1.05 ? 44 : 34;
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
     };
@@ -953,9 +964,8 @@ export default function Hero3DSection({ provinces = [], onSelectProvince, embedd
     };
   }, [autoRotate]);
 
-  return (
-    <section className={`relative overflow-hidden bg-[#001D39] ${embedded ? "w-full h-full" : "rounded-[1.25rem] border-2 border-[#001D39] shadow-[6px_6px_0px_#001D39]"}`}>
-
+  const heroContent = (
+    <div className="w-full h-full relative overflow-hidden">
       {/* ═══════════════════════════════════════════════════════════════
           IMMERSIVE 3D VIEWPORT — The full-bleed Digital Twin canvas
          ═══════════════════════════════════════════════════════════════ */}
@@ -971,73 +981,68 @@ export default function Hero3DSection({ provinces = [], onSelectProvince, embedd
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#001D39]/50 via-transparent to-transparent" />
 
         {/* ─── TOP-LEFT: SIGAP BRANDING HUD ─── */}
-        <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-20 space-y-3 pointer-events-none max-w-sm sm:max-w-md">
-          {/* Badges Row */}
-          <div className="flex items-center gap-2 flex-wrap pointer-events-auto">
-            <span className="px-2.5 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-[10px] font-black text-white shadow-lg flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-ping" />
-              P!NGFEST 2026 • UNS
-            </span>
-            <span className="text-[10px] font-black px-2 py-1 rounded-md bg-[#7BBDE8]/20 backdrop-blur-sm text-[#7BBDE8] border border-[#7BBDE8]/30">
-              Infrastruktur & Kota Cerdas
-            </span>
-          </div>
-
+        <div className="absolute top-3 left-3 sm:top-6 sm:left-6 z-20 pointer-events-none max-w-[230px] sm:max-w-md">
           {/* SIGAP Title */}
           <div>
-            <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black text-white tracking-tighter leading-[0.85] select-none" style={{ textShadow: '4px 4px 0px #7BBDE8, 0 0 40px rgba(123,189,232,0.3)' }}>
+            <h1 className="text-3xl sm:text-6xl lg:text-8xl font-black text-white tracking-tighter leading-none select-none" style={{ textShadow: '2px 2px 0px #7BBDE8, 0 0 25px rgba(123,189,232,0.3)' }}>
               SIGAP
             </h1>
-            <p className="text-sm sm:text-base font-black text-[#7BBDE8] tracking-tight mt-1">
+            <p className="text-[10px] sm:text-base font-black text-[#7BBDE8] tracking-tight mt-1 sm:mt-1.5 truncate">
               Sistem Informasi Geospasial Akses Presisi
-            </p>
-            <p className="text-[11px] sm:text-xs text-white/70 font-medium leading-relaxed mt-1.5 max-w-xs sm:max-w-sm">
-              Digital Twin 3D kepulauan Indonesia — geometri riil 38 provinsi dengan analitik spasial GWR & LISA.
             </p>
           </div>
 
-          {/* Radar Ticker Feed */}
-          <div className="pointer-events-auto flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 backdrop-blur-md border border-white/15 shadow-lg max-w-xs sm:max-w-sm">
-            <Activity className="w-3.5 h-3.5 text-[#00f0ff] animate-pulse flex-shrink-0" />
-            <span className="text-[10px] font-mono font-medium tracking-tight text-white/80 truncate">
-              {radarScannerText}
+          {/* Mobile Sleek Single-Line Metrics Chip */}
+          <div className="flex sm:hidden items-center gap-1.5 px-2 py-1 rounded-lg bg-white/10 backdrop-blur-md border border-white/15 shadow-sm mt-1.5 pointer-events-auto w-fit">
+            <span className="text-[9px] font-black text-white flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#7BBDE8]" />
+              38 Prov
+            </span>
+            <span className="text-white/20 text-[9px]">•</span>
+            <span className="text-[9px] font-black text-white flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+              4 Klaster
+            </span>
+            <span className="text-white/20 text-[9px]">•</span>
+            <span className="text-[9px] font-black text-[#F59E0B]">
+              R² 0.915
             </span>
           </div>
         </div>
 
         {/* ─── TOP-RIGHT: CANVAS CONTROLS ─── */}
-        <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 flex flex-col items-end gap-2">
-          <div className="flex items-center gap-1.5">
+        <div className="absolute top-3 right-3 sm:top-6 sm:right-6 z-20 flex flex-col items-end gap-1.5 sm:gap-2">
+          <div className="flex items-center gap-1 sm:gap-1.5">
             <button
               onClick={() => controlsRef.current.toggleRotate()}
-              className={`p-2.5 rounded-xl backdrop-blur-md border shadow-lg transition-all ${
+              className={`p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl backdrop-blur-md border shadow-lg transition-all ${
                 autoRotate 
                   ? "bg-[#7BBDE8]/30 text-white border-[#7BBDE8]/50" 
                   : "bg-white/10 text-white/70 border-white/20 hover:bg-white/20"
               }`}
               title={autoRotate ? "Jeda Rotasi" : "Mulai Rotasi"}
             >
-              <RotateCw className={`w-4 h-4 ${autoRotate ? "animate-spin" : ""}`} style={{ animationDuration: "6s" }} />
+              <RotateCw className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${autoRotate ? "animate-spin" : ""}`} style={{ animationDuration: "6s" }} />
             </button>
 
             <button
               onClick={() => controlsRef.current.resetView()}
-              className="p-2.5 rounded-xl bg-white/10 backdrop-blur-md hover:bg-white/20 border border-white/20 text-white/70 shadow-lg transition-all"
+              className="p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl bg-white/10 backdrop-blur-md hover:bg-white/20 border border-white/20 text-white/70 shadow-lg transition-all"
               title="Reset Kamera"
             >
-              <Maximize2 className="w-4 h-4" />
+              <Maximize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
           </div>
 
-          {/* Live badge */}
-          <span className="px-2.5 py-1 rounded-lg bg-white/10 backdrop-blur-sm border border-white/15 text-[9px] font-black text-white/60 flex items-center gap-1.5">
+          {/* Live badge: desktop only */}
+          <span className="hidden sm:flex px-2.5 py-1 rounded-lg bg-white/10 backdrop-blur-sm border border-white/15 text-[9px] font-black text-white/60 items-center gap-1.5">
             <Radio className="w-3 h-3 text-[#10B981] animate-pulse" />
             LIVE 3D
           </span>
         </div>
 
-        {/* ─── BOTTOM-LEFT: FLOATING METRICS HUD ─── */}
-        <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-20 flex items-end gap-2">
+        {/* ─── BOTTOM-LEFT: FLOATING METRICS HUD (Desktop only) ─── */}
+        <div className="absolute bottom-6 left-6 z-20 hidden sm:flex items-end gap-2">
           <div className="flex gap-1.5">
             {[
               { value: "38", label: "Provinsi", icon: Globe, color: "#7BBDE8" },
@@ -1053,16 +1058,37 @@ export default function Hero3DSection({ provinces = [], onSelectProvince, embedd
           </div>
         </div>
 
-        {/* ─── BOTTOM-CENTER: LENS SWITCHER TOOLBAR ─── */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 hidden sm:flex items-center gap-1 px-2 py-1.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 shadow-xl">
+        {/* ─── BOTTOM-CENTER: LENS SWITCHER TOOLBAR (Desktop only) ─── */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-2xl bg-[#001D39]/85 backdrop-blur-md border border-white/15 shadow-xl">
           {[
-            { id: "cluster", label: "Klaster", icon: Eye },
-            { id: "backbone", label: "Backbone", icon: Wifi },
-            { id: "satellite", label: "Satelit", icon: Satellite },
-            { id: "vision2045", label: "Visi 2045", icon: Sparkles },
+            { id: "cluster", label: "Klaster", icon: Eye, color: "#7BBDE8" },
+            { id: "backbone", label: "Backbone", icon: Wifi, color: "#00f0ff" },
+            { id: "satellite", label: "Satelit", icon: Satellite, color: "#38BDF8" },
+            { id: "vision2045", label: "Visi 2045", icon: Sparkles, color: "#10B981" },
           ].map((mode) => {
             const IconComponent = mode.icon;
             const isActive = activeLens === mode.id;
+            if (isActive) {
+              return (
+                <HoverBorderGradient
+                  key={mode.id}
+                  as="button"
+                  onClick={() => {
+                    setActiveLens(mode.id as LensMode);
+                    controlsRef.current.setLens(mode.id as LensMode);
+                  }}
+                  containerClassName="rounded-xl"
+                  className="px-3 py-1.5 bg-[#001D39] text-white font-black text-[11px] flex items-center gap-1.5 shadow-[0_0_12px_rgba(0,240,255,0.25)]"
+                  innerBgClassName="bg-[#001D39]"
+                  highlightColor={mode.color}
+                  beamColor={mode.color}
+                  duration={1.2}
+                >
+                  <IconComponent className="w-3 h-3 text-[#00f0ff]" />
+                  <span className="hidden lg:inline">{mode.label}</span>
+                </HoverBorderGradient>
+              );
+            }
             return (
               <button
                 key={mode.id}
@@ -1070,11 +1096,7 @@ export default function Hero3DSection({ provinces = [], onSelectProvince, embedd
                   setActiveLens(mode.id as LensMode);
                   controlsRef.current.setLens(mode.id as LensMode);
                 }}
-                className={`px-3 py-1.5 rounded-xl text-[11px] font-black flex items-center gap-1.5 transition-all ${
-                  isActive
-                    ? "bg-white text-[#001D39] shadow-[2px_2px_0px_#7BBDE8]"
-                    : "text-white/70 hover:bg-white/15 hover:text-white"
-                }`}
+                className="px-3 py-1.5 rounded-xl text-[11px] font-black flex items-center gap-1.5 text-white/70 hover:bg-white/15 hover:text-white transition-all"
               >
                 <IconComponent className="w-3 h-3" />
                 <span className="hidden lg:inline">{mode.label}</span>
@@ -1083,8 +1105,8 @@ export default function Hero3DSection({ provinces = [], onSelectProvince, embedd
           })}
         </div>
 
-        {/* ─── BOTTOM-RIGHT: REGION QUICK-NAV ─── */}
-        <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-20 flex flex-col items-end gap-1.5">
+        {/* ─── BOTTOM-RIGHT: REGION QUICK-NAV (Desktop only) ─── */}
+        <div className="absolute bottom-6 right-6 z-20 hidden sm:flex flex-col items-end gap-1.5">
           <span className="text-[9px] font-black uppercase text-white/40 tracking-wider flex items-center gap-1">
             <Compass className="w-3 h-3" />
             Inspeksi Cepat
@@ -1112,6 +1134,79 @@ export default function Hero3DSection({ provinces = [], onSelectProvince, embedd
           </div>
         </div>
 
+        {/* ─── MOBILE BOTTOM CONTROL DECK (Quick Inspect + Lens Switcher) ─── */}
+        <div className="absolute bottom-2.5 left-2 right-2 z-20 flex sm:hidden flex-col items-center gap-1.5">
+          {/* Quick Region Pills */}
+          <div className="flex items-center justify-center gap-1 overflow-x-auto w-full px-1 py-0.5 no-scrollbar">
+            {[
+              { key: "jawa", label: "Jawa", icon: "🏙️" },
+              { key: "kalimantan", label: "IKN", icon: "🏛️" },
+              { key: "papua", label: "Papua", icon: "⚠️" },
+              { key: "satria", label: "SATRIA", icon: "🛰️" },
+            ].map((item) => (
+              <button
+                key={item.key}
+                onClick={() => controlsRef.current.focusRegion(item.key)}
+                className={`px-2 py-0.5 rounded-lg text-[9px] font-black flex items-center gap-1 transition-all backdrop-blur-md border shadow-xs flex-shrink-0 ${
+                  selectedRegion?.id === item.key
+                    ? "bg-[#7BBDE8]/40 text-white border-[#7BBDE8]"
+                    : "bg-[#001D39]/80 text-white/75 border-white/15"
+                }`}
+              >
+                <span>{item.icon}</span>
+                {item.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Mobile Lens Switcher Bar */}
+          <div className="flex items-center justify-around gap-1 px-1.5 py-1 rounded-xl bg-[#001D39]/90 backdrop-blur-md border border-white/15 shadow-xl w-full max-w-[320px]">
+            {[
+              { id: "cluster", label: "Klaster", icon: Eye, color: "#7BBDE8" },
+              { id: "backbone", label: "Backbone", icon: Wifi, color: "#00f0ff" },
+              { id: "satellite", label: "Satelit", icon: Satellite, color: "#38BDF8" },
+              { id: "vision2045", label: "2045", icon: Sparkles, color: "#10B981" },
+            ].map((mode) => {
+              const IconComponent = mode.icon;
+              const isActive = activeLens === mode.id;
+              if (isActive) {
+                return (
+                  <HoverBorderGradient
+                    key={mode.id}
+                    as="button"
+                    onClick={() => {
+                      setActiveLens(mode.id as LensMode);
+                      controlsRef.current.setLens(mode.id as LensMode);
+                    }}
+                    containerClassName="rounded-lg flex-shrink-0"
+                    className="px-2 py-1 bg-[#001D39] text-white font-black text-[9px] flex items-center gap-1"
+                    innerBgClassName="bg-[#001D39]"
+                    highlightColor={mode.color}
+                    beamColor={mode.color}
+                    duration={1.2}
+                  >
+                    <IconComponent className="w-3 h-3 text-[#00f0ff]" />
+                    <span>{mode.label}</span>
+                  </HoverBorderGradient>
+                );
+              }
+              return (
+                <button
+                  key={mode.id}
+                  onClick={() => {
+                    setActiveLens(mode.id as LensMode);
+                    controlsRef.current.setLens(mode.id as LensMode);
+                  }}
+                  className="px-2 py-1 rounded-lg text-[9px] font-black flex items-center gap-1 text-white/70 hover:bg-white/15 transition-all flex-shrink-0"
+                >
+                  <IconComponent className="w-3 h-3" />
+                  <span>{mode.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
         {/* ─── HOVER: Province Name Tooltip ─── */}
         {hoveredProvName && !selectedRegion && (
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
@@ -1130,17 +1225,17 @@ export default function Hero3DSection({ provinces = [], onSelectProvince, embedd
 
         {/* ─── IDLE: Center Instruction ─── */}
         {!selectedRegion && !hoveredProvName && (
-          <div className="absolute bottom-20 sm:bottom-24 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
-            <div className="flex flex-col items-center gap-1 animate-bounce" style={{ animationDuration: '3s' }}>
-              <span className="text-[10px] font-bold text-white/40">Geser, putar, dan klik provinsi</span>
-              <ChevronDown className="w-4 h-4 text-white/30" />
+          <div className="absolute bottom-24 sm:bottom-24 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
+            <div className="flex flex-col items-center gap-0.5 animate-bounce" style={{ animationDuration: '3s' }}>
+              <span className="text-[9px] sm:text-[10px] font-bold text-white/40">Geser &amp; putar 3D</span>
+              <ChevronDown className="w-3.5 h-3.5 text-white/30" />
             </div>
           </div>
         )}
 
         {/* ─── VISION 2045 SLIDER OVERLAY ─── */}
         {activeLens === "vision2045" && (
-          <div className="absolute bottom-16 sm:bottom-20 left-4 sm:left-6 right-4 sm:right-auto sm:w-96 bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/20 shadow-2xl z-20 space-y-1.5">
+          <div className="absolute bottom-24 sm:bottom-20 left-3 sm:left-6 right-3 sm:right-auto sm:w-96 bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/20 shadow-2xl z-20 space-y-1.5">
             <div className="flex justify-between items-center text-xs font-black text-white">
               <span className="flex items-center gap-1.5">
                 <TrendingUp className="w-3.5 h-3.5 text-[#10B981]" />
@@ -1168,36 +1263,6 @@ export default function Hero3DSection({ provinces = [], onSelectProvince, embedd
             </div>
           </div>
         )}
-
-        {/* ─── MOBILE LENS SWITCHER (visible on small screens) ─── */}
-        <div className="absolute bottom-4 left-4 right-4 z-20 flex sm:hidden items-center gap-1 px-2 py-1.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 shadow-xl overflow-x-auto">
-          {[
-            { id: "cluster", label: "Klaster", icon: Eye },
-            { id: "backbone", label: "Backbone", icon: Wifi },
-            { id: "satellite", label: "Satelit", icon: Satellite },
-            { id: "vision2045", label: "2045", icon: Sparkles },
-          ].map((mode) => {
-            const IconComponent = mode.icon;
-            const isActive = activeLens === mode.id;
-            return (
-              <button
-                key={mode.id}
-                onClick={() => {
-                  setActiveLens(mode.id as LensMode);
-                  controlsRef.current.setLens(mode.id as LensMode);
-                }}
-                className={`px-2.5 py-1 rounded-xl text-[10px] font-black flex items-center gap-1 transition-all flex-shrink-0 ${
-                  isActive
-                    ? "bg-white text-[#001D39] shadow-[2px_2px_0px_#7BBDE8]"
-                    : "text-white/70 hover:bg-white/15"
-                }`}
-              >
-                <IconComponent className="w-3 h-3" />
-                {mode.label}
-              </button>
-            );
-          })}
-        </div>
 
         {/* ═══ TELEMETRY HUD CARD — Shown when province/satellite is clicked ═══ */}
         {selectedRegion && (
@@ -1268,15 +1333,25 @@ export default function Hero3DSection({ provinces = [], onSelectProvince, embedd
               </div>
             </div>
 
-            {/* Card Actions */}
+            {/* Card Actions (Opsi A on Popup) */}
             <div className="pt-3 flex items-center gap-2">
-              <Link
-                href="/peta-analisis"
-                className="flex-1 py-2.5 px-3 rounded-xl bg-[#7BBDE8] hover:bg-[#6EA2B3] text-[#001D39] text-xs font-black text-center border border-[#001D39] shadow-[2px_2px_0px_#001D39] flex items-center justify-center gap-1.5 transition-transform active:translate-x-0.5"
+              <HoverBorderGradient
+                as="div"
+                containerClassName="flex-1 rounded-xl shadow-[2px_2px_0px_#001D39]"
+                className="w-full py-2.5 px-3 bg-[#7BBDE8] hover:bg-[#6EA2B3] text-[#001D39] text-xs font-black flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+                innerBgClassName="bg-[#7BBDE8]"
+                highlightColor="#001D39"
+                beamColor="rgba(0, 29, 57, 0.65)"
+                duration={1.4}
               >
-                <span>Analisis Peta</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+                <Link
+                  href="/peta-analisis"
+                  className="flex items-center justify-center gap-1.5 text-[#001D39] w-full"
+                >
+                  <span>Analisis Peta</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </HoverBorderGradient>
               <button
                 onClick={() => controlsRef.current.resetView()}
                 className="py-2.5 px-3 rounded-xl bg-white/10 border border-white/20 text-xs font-black text-white/70 hover:bg-white/20 hover:text-white transition-all"
@@ -1289,7 +1364,7 @@ export default function Hero3DSection({ provinces = [], onSelectProvince, embedd
       </div>
 
       {/* ═══════════════════════════════════════════════════════════════
-          BOTTOM ACTION BAR — Legend, Info, CTAs (Compact)
+          BOTTOM ACTION BAR — Legend, Info, CTAs (Opsi A)
          ═══════════════════════════════════════════════════════════════ */}
       <div className="px-4 sm:px-6 py-3 bg-[#001D39] border-t border-white/10">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
@@ -1314,26 +1389,71 @@ export default function Hero3DSection({ provinces = [], onSelectProvince, embedd
             </span>
           </div>
 
-          {/* Right: CTAs */}
+          {/* Right: CTAs with HoverBorderGradient (Opsi A) */}
           <div className="flex items-center gap-2 flex-shrink-0">
-            <Link
-              href="/peta-analisis"
-              className="px-4 py-2 rounded-xl bg-[#7BBDE8] hover:bg-[#6EA2B3] text-[#001D39] text-xs font-black flex items-center gap-1.5 border border-[#001D39] shadow-[2px_2px_0px_#7BBDE8] transition-transform active:translate-x-0.5"
+            <HoverBorderGradient
+              as="div"
+              containerClassName="rounded-xl shadow-[2px_2px_0px_#7BBDE8]"
+              className="px-4 py-2 bg-[#7BBDE8] hover:bg-[#6EA2B3] text-[#001D39] text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer"
+              innerBgClassName="bg-[#7BBDE8]"
+              highlightColor="#001D39"
+              beamColor="rgba(0, 29, 57, 0.75)"
+              duration={1.5}
             >
-              <Globe className="w-3.5 h-3.5" />
-              <span>Peta Lengkap</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-            <Link
-              href="/simulasi-kebijakan"
-              className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-black flex items-center gap-1.5 border border-white/20 transition-all"
+              <Link
+                href="/peta-analisis"
+                className="flex items-center gap-1.5 text-[#001D39]"
+              >
+                <Globe className="w-3.5 h-3.5" />
+                <span>Peta Lengkap</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </HoverBorderGradient>
+
+            <HoverBorderGradient
+              as="div"
+              containerClassName="rounded-xl"
+              className="px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer"
+              innerBgClassName="bg-[#001D39]"
+              highlightColor="#00f0ff"
+              beamColor="rgba(123, 189, 232, 0.85)"
+              duration={2}
             >
-              <Sliders className="w-3.5 h-3.5" />
-              <span>Simulasi</span>
-            </Link>
+              <Link
+                href="/simulasi-kebijakan"
+                className="flex items-center gap-1.5 text-white"
+              >
+                <Sliders className="w-3.5 h-3.5 text-[#7BBDE8]" />
+                <span>Simulasi</span>
+              </Link>
+            </HoverBorderGradient>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  );
+
+  // Opsi B: Outer Frame of Hero 3D with HoverBorderGradient
+  if (embedded) {
+    return (
+      <section className="relative overflow-hidden bg-[#001D39] w-full h-full">
+        {heroContent}
+      </section>
+    );
+  }
+
+  return (
+    <HoverBorderGradient
+      as="section"
+      containerClassName="w-full rounded-[1.25rem] border-2 border-[#001D39] shadow-[6px_6px_0px_#001D39] bg-[#001D39] p-0"
+      className="w-full h-full rounded-[inherit] overflow-hidden"
+      innerBgClassName="bg-[#001D39]"
+      duration={3.5}
+      borderWidth={2}
+      highlightColor="#00f0ff"
+      beamColor="rgba(0, 240, 255, 0.85)"
+    >
+      {heroContent}
+    </HoverBorderGradient>
   );
 }

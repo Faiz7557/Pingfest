@@ -89,15 +89,10 @@ export default function Sidebar() {
             <Radio className="w-4 h-4 text-[#001D39]" />
           </div>
           <div className="flex flex-col">
-            <div className="flex items-center gap-1.5">
-              <span className="text-xl font-black text-[#001D39] tracking-wider leading-none">
-                SIGAP
-              </span>
-              <span className="px-1.5 py-0.5 text-[9px] font-black rounded bg-[#BDD8E9] border border-[#001D39] text-[#001D39]">
-                v1.0
-              </span>
-            </div>
-            <span className="text-[10px] text-[#49769F] font-bold tracking-tight">
+            <span className="text-xl font-black text-[#001D39] tracking-wider leading-none">
+              SIGAP
+            </span>
+            <span className="text-[10px] text-[#49769F] font-bold tracking-tight mt-0.5">
               P!NGFEST 2026 • UNS
             </span>
           </div>
@@ -203,30 +198,14 @@ export default function Sidebar() {
               </nav>
             </div>
 
-            {/* Bottom Drawer Section: Philosophy & Team Card */}
-            <div className="space-y-3 pt-4 border-t-2 border-[#001D39]/10 mt-6">
-              {/* Philosophy Badge */}
-              <div className="p-2.5 rounded-xl bg-[#EDF4F9] border-1.5 border-[#001D39] text-[11px] text-[#0A4174] font-medium flex items-center gap-2 shadow-[2px_2px_0px_#001D39]">
-                <Compass className="w-4 h-4 text-[#4E8EA2] flex-shrink-0" />
-                <span className="leading-snug">
+            {/* Bottom Drawer Section: Philosophy Card */}
+            <div className="pt-4 border-t-2 border-[#001D39]/10 mt-6">
+              <div className="p-2.5 rounded-2xl bg-[#EDF4F9] border-2 border-[#001D39] shadow-[2px_2px_0px_#001D39] flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-xl bg-[#7BBDE8] border-2 border-[#001D39] text-[#001D39] flex items-center justify-center flex-shrink-0">
+                  <Compass className="w-4 h-4 text-[#001D39]" />
+                </div>
+                <div className="text-xs font-black text-[#0A4174] leading-snug">
                   &ldquo;AI Memetakan, Manusia Memutuskan&rdquo;
-                </span>
-              </div>
-
-              {/* User Card */}
-              <div className="p-2.5 rounded-2xl bg-white border-2 border-[#001D39] shadow-[2px_2px_0px_#001D39] flex items-center justify-between gap-2">
-                <div className="flex items-center gap-2.5 overflow-hidden">
-                  <div className="w-8 h-8 rounded-xl bg-[#7BBDE8] border-2 border-[#001D39] text-[#001D39] font-black text-xs flex items-center justify-center flex-shrink-0">
-                    F
-                  </div>
-                  <div className="overflow-hidden">
-                    <div className="text-xs font-black text-[#001D39] truncate">
-                      Faiz Iqbal Itishom
-                    </div>
-                    <div className="text-[10px] text-[#49769F] font-semibold truncate">
-                      IRIS Kehitaman 3 Angkatan
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -334,30 +313,14 @@ export default function Sidebar() {
           </nav>
         </div>
 
-        {/* Philosophy Pill & Participant Profile */}
-        <div className="space-y-3 pt-4 border-t-2 border-[#001D39]/10">
-          {/* Philosophy Badge */}
-          <div className="p-2.5 rounded-xl bg-[#EDF4F9] border-1.5 border-[#001D39] text-[11px] text-[#0A4174] font-medium flex items-center gap-2 shadow-[2px_2px_0px_#001D39]">
-            <Compass className="w-4 h-4 text-[#4E8EA2] flex-shrink-0" />
-            <span className="leading-snug">
+        {/* Philosophy Card */}
+        <div className="pt-4 border-t-2 border-[#001D39]/10">
+          <div className="p-2.5 rounded-2xl bg-[#EDF4F9] border-2 border-[#001D39] shadow-[3px_3px_0px_#001D39] flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-xl bg-[#7BBDE8] border-2 border-[#001D39] text-[#001D39] flex items-center justify-center flex-shrink-0">
+              <Compass className="w-4 h-4 text-[#001D39]" />
+            </div>
+            <div className="text-xs font-black text-[#0A4174] leading-snug">
               &ldquo;AI Memetakan, Manusia Memutuskan&rdquo;
-            </span>
-          </div>
-
-          {/* User Card */}
-          <div className="p-2.5 rounded-2xl bg-white border-2 border-[#001D39] shadow-[3px_3px_0px_#001D39] flex items-center justify-between gap-2">
-            <div className="flex items-center gap-2.5 overflow-hidden">
-              <div className="w-8 h-8 rounded-xl bg-[#7BBDE8] border-2 border-[#001D39] text-[#001D39] font-black text-xs flex items-center justify-center flex-shrink-0">
-                F
-              </div>
-              <div className="overflow-hidden">
-                <div className="text-xs font-black text-[#001D39] truncate">
-                  Faiz Iqbal Itishom
-                </div>
-                <div className="text-[10px] text-[#49769F] font-semibold truncate">
-                  IRIS Kehitaman 3 Angkatan
-                </div>
-              </div>
             </div>
           </div>
         </div>
